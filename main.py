@@ -31,6 +31,11 @@ def main():
             if(ship.collision_check(enemy)):
                 print("Game over!")
                 sys.exit()
+            for bullet in shots:
+                if(bullet.collision_check(enemy)):
+                    bullet.kill()
+                    enemy.split()
+                    break
         for items in drawables:
             items.draw(screen)
         pygame.display.flip()
